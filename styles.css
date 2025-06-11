@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+        
+h1 {
+    text-align: center;
+    color: #e74c3c;
+}
+        
+.pizza-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+        
+.pizza-option {
+    width: 30%;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+        
+.pizza-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+        
+.pizza-option.selected {
+    border: 2px solid #e74c3c;
+}
+        
+.pizza-option img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+        
+.size-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+        
+.size-option {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+        
+.size-option.selected {
+    background-color: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+        
+.toping-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+        
+.toping-option {
+    width: calc(33.33% - 10px);
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+        
+.toping-option.selected {
+    border: 2px solid #e74c3c;
+}
+        
+.toping-option-price {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 5px;
+}
+        
+.add-to-cart {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+        
+.add-to-cart:hover {
+    background-color: #c0392b;
+}
+        
+.price-calories {
+    font-weight: bold;
+    margin-top: 5px;
+}

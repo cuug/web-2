@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор пиццы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <h1>Выберите пиццу</h1>
+        
+        <div class="pizza-selection">
+            <div class="pizza-option" data-name="Пепперони">
+                <img src="images/pepperoni.jpg" alt="Пепперони">
+                <div>Пепперони</div>
+            </div>
+            
+            <div class="pizza-option" data-name="Маргарита">
+                <img src="images/margarita.jpg" alt="Маргарита">
+                <div>Маргарита</div>
+            </div>
+            
+            <div class="pizza-option" data-name="Баварская">
+                <img src="images/bavarian.jpg" alt="Баварская">
+                <div>Баварская</div>
+            </div>
+        </div>
+        
+        <h2>Выберите размер</h2>
+        <div class="size-options">
+            <div class="size-option">Маленькая</div>
+            <div class="size-option">Большая</div>
+        </div>
+        
+        <h2>Добавить по вкусу</h2>
+        <div class="toping-options">
+            <div class="toping-option">
+                <div>Сырный бортик</div>
+                <div class="toping-option-price">50₽</div>
+            </div>
+            
+            <div class="toping-option">
+                <div>Сливочная моцарелла</div>
+                <div class="toping-option-price">от 150₽</div>
+            </div>
+            
+            <div class="toping-option">
+                <div>Чеддер и пармезан</div>
+                <div class="toping-option-price">от 150₽</div>
+            </div>
+        </div>
+        
+        <button class="add-to-cart">
+            Добавить в корзину за <span id="totalPrice">0</span> ₽ (<span id="totalCalories">0</span> кКал)
+        </button>
+
+        <script src="pizza.js"></script>
+    </body>
+</html>

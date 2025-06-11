@@ -38,7 +38,7 @@ class Pizza {
     }
 
     removeTopping(topping) {
-        this.topingsList.filter(t => t != topping);
+        this.topingsList = this.topingsList.filter(t => t != topping);
     }
 
     getToppings() {
@@ -82,12 +82,68 @@ class Pizza {
     }
 }
 
-const examplePizza = new Pizza('Маргарита', 'Большая');
-examplePizza.addTopping('Сырный борт');
-examplePizza.addTopping('Чеддер и пармезан');
+document.addEventListener('DOMContentLoaded', function() {
+    let selectedPizza = new Pizza('Маргарита', 'Маленькая');
 
-console.log('Размер пиццы:', examplePizza.getSize());
-console.log('Тип пиццы:', examplePizza.getStuffing());
-console.log('Добавки:', examplePizza.getToppings().join(', '));
-console.log('Цена:', examplePizza.calculatePrice());
-console.log('Калории:', examplePizza.calculateCalories());
+    const pizzaOptions = document.querySelectorAll('.pizza-option');
+    const sizeOptions = document.querySelectorAll('.size-option');
+    const addOptions = document.querySelectorAll('.toping-option');
+    const addToCartBtn = document.querySelector('.add-to-cart');
+
+    if (pizzaOptions.length > 0) pizzaOptions[0].classList.add('selected');
+    if (sizeOptions.length > 0) sizeOptions[0].classList.add('selected');
+
+    pizzaOptions.forEach((el) => {
+        el.addEventListener('click', () => {
+            pizzaOptions.forEach(p => p.classList.remove('selected'));
+            el.classList.add('selected');
+            
+            const name = el.dataset.name;
+            selectedPizza = new Pizza(name, selectedPizza.size);
+            updateDisplay();
+        });
+    });
+
+    sizeOptions.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            sizeOptions.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            
+            const size = btn.textContent.trim();
+            selectedPizza.size = size;
+            updateDisplay();
+        });
+    });
+
+    addOptions.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('selected');
+            
+            const toppingText = card.querySelector('div').textContent.trim();
+            let toppingName;
+            
+            switch(toppingText) {
+                case 'Сырный бортик': toppingName = 'Сырный борт'; break;
+                case 'Сливочная моцарелла': toppingName = 'Сливочная мацарелла'; break;
+                default: toppingName = toppingText;
+            }
+            
+            if (card.classList.contains('selected')) {
+                selectedPizza.addTopping(toppingName);
+            } else {
+                selectedPizza.removeTopping(toppingName);
+            }
+            
+            updateDisplay();
+        });
+    });
+
+    function updateDisplay() {
+        const price = selectedPizza.calculatePrice();
+        const calories = selectedPizza.calculateCalories();
+        document.getElementById('totalPrice').textContent = price;
+        document.getElementById('totalCalories').textContent = calories;
+    }
+
+    updateDisplay();
+});
