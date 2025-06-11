@@ -38,7 +38,7 @@ class Pizza {
     }
 
     removeTopping(topping) {
-        this.topingsList.filter(t => t != topping);
+        this.topingsList = this.topingsList.filter(t => t != topping);
     }
 
     getToppings() {
